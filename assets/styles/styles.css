@@ -1,0 +1,225 @@
+/* Definição de cores */
+:root {
+    --primary-color: #001524;  /* Azul escuro */
+    --secondary-color: #333333;  /* Verde escuro */
+    --accent-color: #D6CC99;  /* Bege */
+    --background-color: #E7E7E7;  /* Pêssego claro */
+    --text-color: #333;  /* Cor do texto padrão */
+}
+
+/* Estilização geral */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    padding: 1rem;
+}
+
+nav a {
+    margin: 0 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+h1, h2 {
+    color: var(--secondary-color);
+}
+
+/* Estilo para as seções */
+#bookCatalog, #faqSection, #upcomingPresentations {
+    border: 2px solid var(--accent-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--background-color);
+}
+
+/* Flexbox para FAQs e Próximas Palestras */
+#faqAndPresentations {
+    display: flex;
+    justify-content: space-between;
+}
+
+#faqSection, #upcomingPresentations {
+    width: 48%;
+}
+
+/* Estilo para o rodapé */
+footer {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+/* Estilo para o hub de postagens */
+.post {
+    border: 1px solid var(--secondary-color);
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+header h1 img {
+    height: 96px;
+    width: 96px;
+}
+
+/* Estilo para o carrossel */
+.carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    text-align: center;
+    position: relative;
+}
+
+.carousel-image {
+    width: 80%;
+    height: 65%;
+    object-fit: fill;
+}
+
+#bookCarousel {
+    justify-content: start;
+    overflow-x: hidden;
+}
+
+/* Estilo para o vídeo e seu contêiner */
+#videoPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#videoContainer {
+    position: relative;
+    width: 80%;
+    max-width: 600px; /* Limita a largura máxima do vídeo a 600px */
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.responsive-video {
+    width: 100%; /* Faz com que o vídeo ocupe 100% da largura do contêiner */
+    height: auto; /* Mantém a proporção do vídeo */
+}
+
+#closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.ceo-profile {
+    display: flex;
+    align-items: center;
+}
+
+.ceo-description {
+    margin-left: 20px;
+}
+
+.ceo-profile img {
+    width: 100px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.whatsapp-widget {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin:10px 0;
+}
+
+.whatsapp-widget:hover {
+    background-color: #128C7E;
+}
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item:first-child {
+    display: block;
+}
+
+/* Ajustes gerais para dispositivos móveis */
+@media only screen and (max-width: 414px) {
+    #videoContainer {
+        width: calc(100% - 20px); /* Ajusta a largura para não ultrapassar a tela */
+        height: auto; /* A altura é ajustada automaticamente */
+        margin: 10px auto; /* Adiciona margens superior e inferior */
+        box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+    }
+
+    #closeBtn {
+        top: 5px; /* Ajuste o posicionamento conforme necessário */
+        right: 5px; /* Ajuste o posicionamento conforme necessário */
+        width: 35px; /* Tamanho fixo para o botão de fechar */
+        height: 35px; /* Tamanho fixo para o botão de fechar */
+    }
+    
+    /* Certifique-se de que todos os elementos considerem as margens e paddings em seu tamanho */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+}
+
+/* Ajustes para telas grandes */
+@media only screen and (min-width: 1024px) {
+    #videoContainer {
+        max-width: 800px; /* Define uma largura máxima para telas maiores */
+    }
+    .responsive-video {
+        max-height: 90vh; /* Limita a altura máxima do vídeo a 90% da altura da janela */
+    }
+    #closeBtn {
+        min-width: 35px; /* Define um tamanho mínimo para o botão de fechar */
+        min-height: 35px; /* Define um tamanho mínimo para o botão de fechar */
+    }
+}
+ 
